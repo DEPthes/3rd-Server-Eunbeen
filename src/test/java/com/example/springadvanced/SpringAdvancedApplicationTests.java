@@ -25,6 +25,8 @@ class SpringAdvancedApplicationTests {
 		Long userId = 1L;
 		User user = new User();
 		user.setId(userId);
+		user.setName("하재훈");
+		user.setEmail("haman@example.com");
 		Mockito.when(userRepository.findById(userId)).thenReturn(Optional.of(user));
 
 		// When
@@ -33,6 +35,8 @@ class SpringAdvancedApplicationTests {
 		// Then
 		Assertions.assertNotNull(foundUser);
 		Assertions.assertEquals(userId, foundUser.getId());
+		Assertions.assertEquals("하재훈", foundUser.getName());
+		Assertions.assertEquals("haman@example.com", foundUser.getEmail());
 	}
 
 
